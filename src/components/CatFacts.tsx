@@ -16,11 +16,11 @@ export const CatFacts = () => {
     }, []);
 
     return (
-        <div className="flex min-h-screen flex-col p-12 md:items-center md:p-24">
+        <div className="flex min-h-screen flex-col p-10 md:items-center md:p-24">
             <div className="md:flex md:min-h-screen md:flex-col">
                 <div className="mt-4 md:mt-10">
                     {randomFact &&
-                        <h1 className="mb-4 text-3xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{randomFact.fact}
+                        <h1 className="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{randomFact.fact}
                         </h1>
                     }
                 </div>
