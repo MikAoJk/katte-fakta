@@ -57,7 +57,7 @@
   },
   {
     "id": 15,
-    "fact": "  Katten kan se farger. Undersøkelser viser at katter kan skille mellom rød og grønn, rød og blå, rød og grå, grønn og blå, grønn og grå, blå og grønn, gul og blå og gul og grå"
+    "fact": "Katten kan se farger. Undersøkelser viser at katter kan skille mellom rød og grønn, rød og blå, rød og grå, grønn og blå, grønn og grå, blå og grønn, gul og blå og gul og grå"
   },
   {
     "id": 16,
@@ -114,5 +114,13 @@
   {
     "id": 29,
     "fact": "Katter er det mest populære kjæledyret i USA: Det er 88 millioner kjæledyrkatter og 74 millioner hunder"
+  },
+  {
+    "id": 30,
+    "fact": "Katter sover 70 % av livet sitt"
+  },
+  {
+    "id": 31,
+    "fact": "Katter kan drikke sjøvann for å overleve"
   }
 ]
