@@ -49,7 +49,3 @@ The cat facts are stored in `static/cat-facts.json` and are loaded dynamically v
 
 ## Deployed to GitHub pages 
 The application is live at: https://mikaojk.github.io/katte-fakta
-
-## Migration from Next.js
-
-This site was previously built with Next.js/React but has been converted to use Zola for simpler static site generation while maintaining the same functionality and visual design.
