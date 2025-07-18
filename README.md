@@ -40,12 +40,7 @@ The generated site will be available in the `public/` directory.
 - `config.toml` - Zola configuration file
 - `content/` - Markdown content files
 - `templates/` - HTML templates (using Tera templating engine)
-- `static/` - Static assets (CSS, JS, images, data files)
 - `public/` - Generated site output (excluded from git)
-
-## Content
-
-The cat facts are stored in `static/cat-facts.json` and are loaded dynamically via JavaScript to display a random fact on each page load or button click.
 
 ## Deployed to GitHub pages 
 The application is live at: https://mikaojk.github.io/katte-fakta
