@@ -18,24 +18,44 @@
     </div>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/@iarna/toml@2.3.3/dist/toml.min.js"></script>
 <script>
-let catFacts = [];
-
-// Load cat facts from TOML file
-fetch('/cat-facts.toml')
-    .then(response => response.text())
-    .then(tomlText => {
-        // Parse TOML using the TOML library
-        const tomlData = TOML.parse(tomlText);
-        // Extract facts from the parsed data
-        catFacts = tomlData.facts || [];
-        showRandomFact();
-    })
-    .catch(error => {
-        console.error('Error loading cat facts:', error);
-        document.getElementById('cat-fact').textContent = 'Kunne ikke laste katte fakta';
-    });
+// Cat facts embedded directly in the template
+const catFacts = [
+  {id: 1, fact: "En katt kan være høyre eller venstre-potet"},
+  {id: 2, fact: "En katt kan hoppe opp til syv ganger sin egen høyde"},
+  {id: 3, fact: "En katt kan løpe nesten 50 kilometer i timen - hvis den vil"},
+  {id: 4, fact: "En katt kan se omkring seks ganger bedre enn mennesker om natten"},
+  {id: 5, fact: "En katt har ingen svettekjertler"},
+  {id: 6, fact: "En katt vil i gjennomsnitt bruke 30% av sitt liv på å rengjøre seg selv"},
+  {id: 7, fact: "En katts hjerne ligner mer en menneskes hjerne, enn en hunds hjerne"},
+  {id: 8, fact: "En katts hørsel er en av de beste i hele dyreriket"},
+  {id: 9, fact: "Katter kan høre lyder så høye som 65 kHz, et menneskes hørsel stopper ved 20 kHz"},
+  {id: 10, fact: "En katts hjerte slår 110 til 140 slag i minuttet, dobbelt så hurtig som et menneskes hjerte"},
+  {id: 11, fact: "Overtroen om at sorte katter betyr uhell har opprinnelse i Amerika. I Asia og England er sorte katter et tegn på hell"},
+  {id: 12, fact: "Både mennesker og katter har identiske regioner i hjernen som er ansvarlige for følelseslivet"},
+  {id: 13, fact: "Katte sover i gjennomsnitt 16 timer i døgnet, lengre enn noe annet pattedyr"},
+  {id: 14, fact: "Katten kan lære å utføre tricks."},
+  {id: 15, fact: "Katten kan se farger. Undersøkelser viser at katter kan skille mellom rød og grønn, rød og blå, rød og grå, grønn og blå, grønn og grå, blå og grønn, gul og blå og gul og grå"},
+  {id: 16, fact: "Katten har AB blodtyper, ganske like mennesker"},
+  {id: 17, fact: "Katten har omkring 100 forskjellige vokaliseringslyder. Til sammenligning har hunden ca. 10"},
+  {id: 18, fact: "Katten skal ha fett i kosten fordi de ikke kan produsere det selv. Gi aldri katten din hundefor, da katten har bruk for fem ganger så mye protein som en hund"},
+  {id: 19, fact: "Katter kan ikke overleve på en vegetarisk kost"},
+  {id: 20, fact: "Sjokolade er giftig for katter"},
+  {id: 21, fact: "I forhold til størrelsen på kroppen, er katter det pattedyr som har størst øyne"},
+  {id: 22, fact: "Det var dødsstraff i det gamle Egypt for å slå en katt ihjel - også selv om det skjedde ved et uhell!"},
+  {id: 23, fact: "Katter har 24 værhår"},
+  {id: 24, fact: "Katter kan enkelt lese menneskets humør og ofte forandre sitt eget humør for å passe eierens"},
+  {id: 25, fact: "Katter hilser på hverandre med å ta nese mot nese"},
+  {id: 26, fact: "Katter kan bare bevege kjeven opp og ned og ikke til siden"},
+  {id: 27, fact: "For lenge siden var det en katt som døde fordi den ble matet fire minutter for sent. Denne historien har gått i arv i mer enn 3000 generasjoner av katter"},
+  {id: 28, fact: "Katter mister melketenner som oss mennesker"},
+  {id: 29, fact: "Katter er det mest populære kjæledyret i USA: Det er 88 millioner kjæledyrkatter og 74 millioner hunder"},
+  {id: 30, fact: "Katter sover 70 % av livet sitt"},
+  {id: 31, fact: "Katter kan drikke sjøvann for å overleve"},
+  {id: 32, fact: "Katter kan rotere ørene sine 180 grader"},
+  {id: 33, fact: "En katts hjerte slår dobbelt så raskt som et menneskes, rundt 110 til 140 slag per minutt"},
+  {id: 34, fact: "Katter har fem tær på frempotene, men bare fire på bakpotene"}
+];
 
 function showRandomFact() {
     if (catFacts.length > 0) {
@@ -43,6 +63,9 @@ function showRandomFact() {
         document.getElementById('cat-fact').textContent = randomFact.fact;
     }
 }
+
+// Show a random fact when the page loads
+showRandomFact();
 
 </script>
 {% endblock content %}
