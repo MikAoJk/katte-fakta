@@ -1,32 +1,55 @@
 # katte-fakta
 
+A simple website displaying random Norwegian cat facts, built with Zola static site generator.
+
 ## Technologies used
-* Bun
-* TypeScript
-* Next.js
-* Tailwind
+* Zola (static site generator)
+* HTML/CSS (with Tailwind-inspired styles)
+* JavaScript (for random fact selection)
 
 ## Getting Started
+
 ### Prerequisites
-Make sure you have bun installed
-See [bun Installation](https://bun.sh/docs/installation) on how to install it locally
-You can check which bun version you have installed
+Make sure you have Zola installed. See [Zola Installation Guide](https://www.getzola.org/documentation/getting-started/installation/) for platform-specific instructions.
+
+You can check which Zola version you have installed:
 ```bash
-bun --version
+zola --version
 ```
 
-Install deps:
+### Development
+
+To start the development server:
 ```bash
-bun install 
+zola serve
 ```
 
-First, run the development server:
+This will start a local server at [http://127.0.0.1:1111](http://127.0.0.1:1111) with hot-reload enabled.
 
+### Building for Production
+
+To build the static site:
 ```bash
-bun dev
+zola build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The generated site will be available in the `public/` directory.
+
+## Project Structure
+
+- `config.toml` - Zola configuration file
+- `content/` - Markdown content files
+- `templates/` - HTML templates (using Tera templating engine)
+- `static/` - Static assets (CSS, JS, images, data files)
+- `public/` - Generated site output (excluded from git)
+
+## Content
+
+The cat facts are stored in `static/cat-facts.json` and are loaded dynamically via JavaScript to display a random fact on each page load or button click.
 
 ## Deployed to GitHub pages 
 The application is live at: https://mikaojk.github.io/katte-fakta
+
+## Migration from Next.js
+
+This site was previously built with Next.js/React but has been converted to use Zola for simpler static site generation while maintaining the same functionality and visual design.

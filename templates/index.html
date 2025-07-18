@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main>
+    <div class="flex min-h-screen flex-col items-center justify-between">
+        <div class="z- items-center justify-between font-mono text-sm flex">
+            <div class="flex min-h-screen flex-col p-8 md:items-center md:p-24">
+                <div class="md:flex md:min-h-screen md:flex-col">
+                    <div class="mt-4 md:mt-10">
+                        <h1 id="cat-fact" class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+                            Laster katte fakta...
+                        </h1>
+                        <button id="new-fact-btn" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700">
+                            Ny katte fakta
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+let catFacts = [];
+
+// Load cat facts from JSON file
+fetch('/cat-facts.json')
+    .then(response => response.json())
+    .then(data => {
+        catFacts = data;
+        showRandomFact();
+    })
+    .catch(error => {
+        console.error('Error loading cat facts:', error);
+        document.getElementById('cat-fact').textContent = 'Kunne ikke laste katte fakta';
+    });
+
+function showRandomFact() {
+    if (catFacts.length > 0) {
+        const randomFact = catFacts[Math.floor(Math.random() * catFacts.length)];
+        document.getElementById('cat-fact').textContent = randomFact.fact;
+    }
+}
+
+// Add event listener for new fact button
+document.getElementById('new-fact-btn').addEventListener('click', showRandomFact);
+</script>
+{% endblock content %}
