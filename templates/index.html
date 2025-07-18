@@ -10,9 +10,7 @@
                         <h1 id="cat-fact" class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                             Laster katte fakta...
                         </h1>
-                        <button id="new-fact-btn" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-700">
-                            Ny katte fakta
-                        </button>
+        
                     </div>
                 </div>
             </div>
@@ -20,14 +18,17 @@
     </div>
 </main>
 
-<script>
+<script src="https://cdn.jsdelivr.net/npm/@iarna/toml@2.3.3/dist/toml.min.js"></script>
 let catFacts = [];
 
-// Load cat facts from JSON file
-fetch('/cat-facts.json')
-    .then(response => response.json())
-    .then(data => {
-        catFacts = data;
+// Load cat facts from TOML file
+fetch('/cat-facts.toml')
+    .then(response => response.text())
+    .then(tomlText => {
+        // Parse TOML using the TOML library
+        const tomlData = TOML.parse(tomlText);
+        // Extract facts from the parsed data
+        catFacts = tomlData.facts || [];
         showRandomFact();
     })
     .catch(error => {
@@ -42,7 +43,5 @@ function showRandomFact() {
     }
 }
 
-// Add event listener for new fact button
-document.getElementById('new-fact-btn').addEventListener('click', showRandomFact);
 </script>
 {% endblock content %}
