@@ -28,6 +28,7 @@ jobs:
         with:
           path: ./public
   deploy:
+    if: github.event.pull_request.user.login != 'dependabot[bot]'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
